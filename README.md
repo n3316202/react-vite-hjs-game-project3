@@ -32,9 +32,20 @@
 
 ### 5. 개발위한 기본파일 정리
 
-
-
 ### 6. 패스 앨리어스 설정(@)
+
+#### vite.config.js 설정
+
+```
+import path from "path";
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+  },
+})
+```
 
 jsonconfig.json => vs code 를 위한 설정(절대 경로 패스를 설정하기 위해 주로 설정)
 
