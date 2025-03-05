@@ -1,4 +1,5 @@
 import MainLayout from '@/ui/layouts/MainLayout'
+import BoardPage from '@/ui/pages/BoardPage'
 import LottoPage from '@/ui/pages/LottoPage'
 import RspPage from '@/ui/pages/RspPage'
 import { createBrowserRouter } from 'react-router-dom'
@@ -18,6 +19,11 @@ const routes = [
         path: 'rsp',
         element: <RspPage />,
         loader: () => '가위바위보',
+      },
+      {
+        path: 'boards',
+        element: <BoardPage />,
+        loader: () => '게시판',
       },
     ],
   },
