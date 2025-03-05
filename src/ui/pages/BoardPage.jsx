@@ -20,6 +20,15 @@ const BoardPage = () => {
     getContacts(3, 10)
   }, [])
 
+  //<button className='btn btn-success' value={contact.no} onClick={deleteBoard}>
+
+  const deleteBoard = (event) =>{
+    const no = event.target.value
+
+    setContacts( contacts.filter((contact)=>{ contact.no != no}))
+    
+  }
+
   return (
     <div className='container mt-3'>
       <div className='container-fluid'>
@@ -64,7 +73,6 @@ const BoardPage = () => {
                         <td>{contact.no}</td>
                         <td>{contact.name}</td>
                         <td>{contact.tel}</td>
-
                         <td>{contact.address}</td>
                         <td>
                           <img src={contact.photo} alt='' />
