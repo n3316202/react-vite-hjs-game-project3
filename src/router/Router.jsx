@@ -1,5 +1,6 @@
 import MainLayout from '@/ui/layouts/MainLayout'
 import LottoPage from '@/ui/pages/LottoPage'
+import RspPage from '@/ui/pages/RspPage'
 import { createBrowserRouter } from 'react-router-dom'
 
 const routes = [
@@ -9,9 +10,14 @@ const routes = [
     loader: () => '로또',
     children: [
       {
-        path: '/',
+        path: '',
         element: <LottoPage />,
         loader: () => '로또',
+      },
+      {
+        path: 'rsp',
+        element: <RspPage />,
+        loader: () => '가위바위보',
       },
     ],
   },
