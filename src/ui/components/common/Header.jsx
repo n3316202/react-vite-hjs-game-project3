@@ -23,8 +23,8 @@ const Header = () => {
           </button>
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-              {routes &&
-                routes.map((route) => (
+              {routes[0].children &&
+                routes[0].children.map((route) => (
                   //console.log(route.loader() + route.path)
                   <li className='nav-item dropdown'>
                     <Link
@@ -37,7 +37,7 @@ const Header = () => {
                     >
                       {route.loader()}
                     </Link>
-                    {route.children && (
+                    {/* {route.children && (
                       <ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
                         {route.children.map((child) => (
                           <li key={child.loader()}>
@@ -47,7 +47,7 @@ const Header = () => {
                           </li>
                         ))}
                       </ul>
-                    )}
+                    )} */}
                   </li>
                 ))}
             </ul>
