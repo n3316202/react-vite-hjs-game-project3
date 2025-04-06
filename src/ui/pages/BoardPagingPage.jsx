@@ -14,9 +14,11 @@ const BoardPagingPage = () => {
 
   const [paging, setPaging] = useState(initPaging)
 
-  const getContacts = (pageNum = 1, pageSize) => {
-    axios
-      .get(`https://sample.bmaster.kro.kr/contacts?pageno=${pageNum}&pagesize=${pageSize}`)
+  //getContacts(4)
+
+  const getContacts = async (pageNum = 1) =>  {
+    await  axios
+      .get(`https://sample.bmaster.kro.kr/contacts?pageno=${pageNum}&pagesize=${paging.limit}`)
       .then((response) => {
         console.log(response)
 
@@ -44,7 +46,7 @@ const BoardPagingPage = () => {
   //렌더링 할때 한번만 타는 구문
   useEffect(() => {
     //`https://sample.bmaster.kro.kr/contacts?pageno=3&pagesize=10`
-    getContacts(3, 10)
+    getContacts(3)
   }, [])
 
   //<button className='btn btn-success' value={contact.no} onClick={deleteBoard}>
@@ -68,23 +70,6 @@ const BoardPagingPage = () => {
     console.log(pageNumber)
     console.log(typeof pageNumber)
     getContacts(pageNumber)
-    //setPaging((prev) => ({ ...prev, activePage: pageNumber }))
-
-    // axios
-    //   .get(`https://sample.bmaster.kro.kr/contacts?pageno=${pageNumber}&pagesize=${paging.pageCount}`)
-    //   .then((res) => {
-    //     console.log(res)
-
-    //     setPaging((prev) => ({
-    //       ...prev,
-    //       data: res.data.contacts,
-    //       totalCount: res.data.totalcount,
-    //       activePage: pageNumber,
-    //     }))
-
-    //     console.log(paging)
-    //   })
-    //   .catch((error) => console.log(error))
   }
 
   return (
